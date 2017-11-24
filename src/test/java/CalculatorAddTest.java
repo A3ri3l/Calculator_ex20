@@ -115,4 +115,37 @@ public class CalculatorAddTest {
 		}
 	}
 	
+	@Test
+	public void testAddZeros() {
+		//0 + 0
+		double firstNumber = 0;
+		double secondNumber = 0;
+		double result = firstNumber + secondNumber;
+			
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
+			
+		for(int i = 0;i<200;i++) {	
+		//0 + random
+		firstNumber = 0;
+		secondNumber = Double.valueOf(df.format(random.nextDouble()*(1000)));
+		result = firstNumber + secondNumber;
+			
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
+			
+			
+		//random + 0
+		firstNumber = Double.valueOf(df.format(random.nextDouble()*(1000)));;
+		secondNumber = 0;
+		result = firstNumber + secondNumber;
+				
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
+		}	
+					
+		}
+	
+	
 }
+	
