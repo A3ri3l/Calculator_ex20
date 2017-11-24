@@ -24,10 +24,43 @@ public class CalculatorTest {
 			secondNumber = Double.valueOf(df.format(random.nextDouble()*10));
 			result = firstNumber + secondNumber;
 			
-			LOG.info("Testing the method with: "+ firstNumber +" and " + secondNumber);
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
 			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
 			
 		}
 	}
-
+	
+	@Test
+	public void testAddMediumSizedPositiveNumbers() {
+		double firstNumber = 0;
+		double secondNumber = 0;
+		double result = 0;
+		
+		for(int i = 0;i<200;i++) {
+			firstNumber = Double.valueOf(df.format(random.nextDouble()*100));
+			secondNumber = Double.valueOf(df.format(random.nextDouble()*100));
+			result = firstNumber + secondNumber;
+			
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
+			
+		}
+	}
+	
+	@Test
+	public void testAddLargeSizedPositiveNumbers() {
+		double firstNumber = 0;
+		double secondNumber = 0;
+		double result = 0;
+		
+		for(int i = 0;i<200;i++) {
+			firstNumber = Double.valueOf(df.format(random.nextDouble()*1000));
+			secondNumber = Double.valueOf(df.format(random.nextDouble()*1000));
+			result = firstNumber + secondNumber;
+			
+			LOG.info("Testing the add method with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.add(firstNumber, secondNumber)), Math.round(result),1);
+			
+		}
+	}
 }
